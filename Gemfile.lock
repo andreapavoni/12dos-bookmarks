@@ -36,10 +36,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    devise (1.5.4)
+    devise (3.0.0.rc)
       bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -55,7 +56,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.4)
     multi_json (1.7.6)
-    orm_adapter (0.0.7)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -115,7 +116,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  devise
+  devise (~> 3.0.0.rc)
   jquery-rails
   rails (= 4.0.0.rc2)
   sass-rails (~> 4.0.0.rc2)
