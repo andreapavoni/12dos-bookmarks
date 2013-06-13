@@ -47,3 +47,5 @@ end
 # Our additional gems
 
 gem 'devise', '~> 3.0.0.rc'
+
+gem 'zurb-foundation', '~> 4.2.2'
