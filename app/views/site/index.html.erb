@@ -1,2 +1,36 @@
-<h1>Site#index</h1>
-<p>Find me in app/views/site/index.html.erb</p>
+<% if current_user %>
+  <h2>Latest Bookmarks</h2>
+  <table>
+    <tr>
+      <th>Url</th>
+    </tr>
+
+    <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td><%= link_to bookmark.title, bookmark.url %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <div class="panel">
+    <h1>Share your bookmarks!</h1>
+    <p>A simple app to track and share your beloved bookmarks with others.</p>
+    <%= link_to "Get started today", new_user_registration_path, :class => "button button-large" %>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="large-8 columns">
+      <h3>12 Devs of Summer</h3>
+      <p>
+      12 Devs is an evolution of the 12 Devs of Xmas, a way to bring more cool web development articles to you throughout the year. However 12 Devs won’t just be about the tutorial and tips articles, we’re also going to be bringing you some great new features and events.
+      </p>
+      <p><a class="" href="http://12devs.co.uk" target="_blank">Learn more</a>.</p>
+    </div>
+    <div class="large-4 columns">
+      <h3>About this app</h3>
+      <p>This is a tutorial app developed by <a href="http://andreapavoni.com" target="_blank">Andrea Pavoni</a> as a companion to the rails article. Check the source code on <a href="http://github.com/apeacox/12dos-bookmarks" target="_blank">GitHub</a>. </p>
+    </div>
+  </div>
+<% end %>
