@@ -1,27 +1,12 @@
-<%= form_for(@bookmark) do |f| %>
-  <% if @bookmark.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+<%= simple_form_for(@bookmark) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @bookmark.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :url %>
   </div>
 
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
