@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :rememberable, :validatable
 
   has_many :bookmarks
+
+  validates :username,
+    presence: true,
+    uniqueness: {case_sensitive: false},
+    format: {with: /\w+/}
 end
