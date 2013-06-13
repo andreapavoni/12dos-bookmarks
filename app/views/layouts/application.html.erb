@@ -6,7 +6,6 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
   <head>
   	<meta charset="utf-8" />
-
   	<!-- Uncomment to make IE8 render like IE7 -->
   	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
@@ -21,9 +20,6 @@
   </head>
 
   <body>
-
-
-    <!-- begin paste -->
     <div class="row">
       <div class="large-12 columns">
 
@@ -88,14 +84,37 @@
         </div>
         <!-- End Flash messages -->
 
+        <!-- Content -->
         <div class="row">
           <div class="large-12 columns">
             <%= yield %>
           </div>
         </div>
+        <!-- End Content -->
+
+        <!-- Footer -->
+        <footer class="row">
+          <div class="large-12 columns"><hr />
+            <div class="row">
+              <div class="large-6 columns">
+                <p>&copy; Copyright no one at all.</p>
+              </div>
+
+              <div class="large-6 columns">
+                <ul class="inline-list right">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Etc..</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- End Footer -->
+
       </div>
     </div>
-  <!-- end paste -->
 
     <%= javascript_include_tag "application" %>
   </body>
