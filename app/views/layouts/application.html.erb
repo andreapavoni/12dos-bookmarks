@@ -45,7 +45,7 @@
                     <li class="divider"></li>
 
                     <li class="has-dropdown">
-                      <%= link_to current_user.email, '#'%>
+                      <%= link_to current_user.username, '#'%>
                       <ul class="dropdown">
                         <li><%= link_to 'Profile', edit_user_registration_path %></li>
                         <li><%= link_to 'Logout', destroy_user_session_path %></li>
