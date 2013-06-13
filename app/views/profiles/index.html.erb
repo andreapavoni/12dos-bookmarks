@@ -1,0 +1,21 @@
+<h2>Users that joined</h2>
+
+<table style="width: 100%">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th># Bookmarks</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, profile_path(user) %></td>
+        <td><%= user.bookmarks.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>

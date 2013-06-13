@@ -1,0 +1,21 @@
+<h2>Bookmarks submitted by <%= link_to @user.username, profile_path(@user) %></h2>
+
+<table style="width: 100%">
+  <thead>
+    <tr>
+      <th>Url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @bookmarks.each do |bookmark| %>
+    <tr>
+    <td><%= link_to bookmark.title, bookmark.url %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= paginate @bookmarks %>
+
+<%= link_to 'Back', profiles_path %>
