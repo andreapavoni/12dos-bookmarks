@@ -50,6 +50,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -123,6 +126,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (~> 3.0.0.rc)
   jquery-rails
+  kaminari
   rails (= 4.0.0.rc2)
   sass-rails (~> 4.0.0.rc2)
   sdoc
