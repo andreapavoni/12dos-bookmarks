@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     presence: true,
     uniqueness: {case_sensitive: false},
     format: {with: /\w+/}
+
+  def to_param
+    self.username
+  end
 end
