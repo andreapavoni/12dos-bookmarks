@@ -1,15 +1,102 @@
 <!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
   <head>
-    <title>Bookmarks</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  	<meta charset="utf-8" />
+
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Bookmarks" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
 
-    </body>
+  <body>
+
+
+    <!-- begin paste -->
+    <div class="row">
+      <div class="large-12 columns">
+
+        <!-- Navigation -->
+
+        <div class="row">
+          <div class="large-12 columns">
+
+            <nav class="top-bar">
+              <ul class="title-area">
+                <!-- Title Area -->
+                <li class="name">
+                  <h1><a href="/">12devs Bookmarks</a></h1>
+                </li>
+              </ul>
+
+              <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                  <li class="divider"></li>
+                  <% if current_user %>
+                    <li><%= link_to 'My Bookmarks', bookmarks_path %></li>
+                    <li class="divider"></li>
+
+                    <li class="has-dropdown">
+                      <%= link_to current_user.email, '#'%>
+                      <ul class="dropdown">
+                        <li><%= link_to 'Profile', edit_user_registration_path %></li>
+                        <li><%= link_to 'Logout', destroy_user_session_path %></li>
+                        <li class="divider"></li>
+                      </ul>
+                    </li>
+                  <% else %>
+                    <li><%= link_to 'Login', new_user_session_path %></li>
+                    <li><%= link_to 'Register', new_user_registration_path %></li>
+                  <% end %>
+                </ul>
+              </section>
+            </nav>
+            <!-- End Top Bar -->
+          </div>
+        </div>
+        <!-- End Navigation -->
+
+        <!-- Flash messages -->
+        <div class="row">
+          <div class="large-12 columns">
+            <% if flash[:notice] %>
+              <div data-alert class="alert-box success">
+                <a href="#" class="close">&times;</a>
+                <%= flash[:notice] %>
+              </div>
+            <% end %>
+
+            <% if flash[:alert] %>
+              <div data-alert class="alert-box alert">
+                <a href="#" class="close">&times;</a>
+                <%= flash[:alert] %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- End Flash messages -->
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- end paste -->
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
