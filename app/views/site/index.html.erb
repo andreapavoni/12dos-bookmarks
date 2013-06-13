@@ -1,16 +1,23 @@
 <% if current_user %>
   <h2>Latest Bookmarks</h2>
-  <table>
-    <tr>
-      <th>Url</th>
-    </tr>
-
-    <% @bookmarks.each do |bookmark| %>
+  <table style="width: 100%">
+    <thead>
       <tr>
-        <td><%= link_to bookmark.title, bookmark.url %></td>
+        <th>Url</th>
       </tr>
-    <% end %>
+    </thead>
+
+    <tbody>
+      <% @bookmarks.each do |bookmark| %>
+        <tr>
+          <td><%= link_to bookmark.title, bookmark.url %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
+
+  <%= paginate @bookmarks %>
+
 <% else %>
   <div class="panel">
     <h1>Share your bookmarks!</h1>

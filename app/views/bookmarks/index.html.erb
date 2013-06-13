@@ -1,6 +1,6 @@
 <h2>Your bookmarks</h2>
 
-<table>
+<table style="width: 100%">
   <thead>
     <tr>
       <th>Title</th>
@@ -24,6 +24,6 @@
   </tbody>
 </table>
 
-<br>
+<%= paginate @bookmarks %>
 
 <%= link_to 'New Bookmark', new_bookmark_path, class: 'button' %>
